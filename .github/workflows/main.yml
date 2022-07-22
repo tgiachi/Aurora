@@ -2,8 +2,8 @@ name: Publish AuroraSDK on NuGet
 
 on:
   push:
-    branches: [master]
-    paths: ["src/**"]
+    branches: [main]
+    paths: ["*/**"]
   workflow_dispatch:
 
 jobs:
