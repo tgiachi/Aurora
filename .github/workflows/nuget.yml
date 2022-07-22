@@ -19,18 +19,21 @@ jobs:
 
       - name: Restore dependencies
         run: dotnet restore Aurora.Sdk.sln
+      
+      - name: Create directory
+        run: mkdir publish
 
       - name: Build
         run: dotnet build --no-restore Aurora.Sdk.sln
 
       - name: Package Api
-        run: dotnet build -c Release -o . Aurora.Api/Aurora.Api.csproj
+        run: dotnet build -c Debug -o publish/ Aurora.Api/Aurora.Api.csproj
 
       - name: Package entities
-        run: dotnet build -c Release -o . Aurora.Api.Entities/Aurora.Api.Entities.csproj
+        run: dotnet build -c Debug -o publish/ Aurora.Api.Entities/Aurora.Api.Entities.csproj
      
       - name: Package turbine
-        run: dotnet build -c Release -o . Aurora.Turbine.Api/Aurora.Turbine.Api.csproj
+        run: dotnet build -c Debug -o publish/ Aurora.Turbine.Api/Aurora.Turbine.Api.csproj
 
       - name: Publish on NuGet
-        run: dotnet nuget push ./*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push publish/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
