@@ -23,8 +23,14 @@ jobs:
       - name: Build
         run: dotnet build --no-restore Aurora.Sdk.sln
 
-      - name: Package
-        run: dotnet pack -c Release -o . Aurora.Sdk.sln
+      - name: Package Api
+        run: dotnet build -c Release -o . Aurora.Api/Aurora.Api.csproj
+
+      - name: Package entities
+        run: dotnet build -c Release -o . Aurora.Api.Entities/Aurora.Api.Entities.csproj
+     
+      - name: Package turbine
+        run: dotnet build -c Release -o . Aurora.Turbine.Api/Aurora.Turbine.Api.csproj
 
       - name: Publish on NuGet
         run: dotnet nuget push ./*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
