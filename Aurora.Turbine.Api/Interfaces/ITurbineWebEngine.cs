@@ -23,6 +23,7 @@ namespace Aurora.Turbine.Api.Interfaces
         void RegisterDbContextForAutoMigrate<TDbContext>() where TDbContext : DbContext;
 
         void ForceEnvironmentMode(string mode);
+        Task<WebApplication> BuildApp();
         Task Run();
 
         void AddContextFactory<TDbContext>(Action<DbContextOptionsBuilder> options, bool addToAutoMigrate) where TDbContext : DbContext;

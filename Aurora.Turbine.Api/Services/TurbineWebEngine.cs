@@ -118,6 +118,14 @@ namespace Aurora.Turbine.Api.Services
             _forceMode = mode;
         }
 
+        public Task<WebApplication> BuildApp()
+        {
+            if (_webApplication != null) return Task.FromResult(_webApplication);
+
+            _webApplication = _webApplicationBuilder.Build();
+            return Task.FromResult(_webApplication);
+        }
+
         public async Task Run()
         {
             InitDefaultSettings();
@@ -130,7 +138,7 @@ namespace Aurora.Turbine.Api.Services
 
             _webApplicationBuilder.Services.AddRouting(options => options.LowercaseUrls = true);
 
-            _webApplication = _webApplicationBuilder.Build();
+
             _logger.Information("Starting application");
 
             if (_turbineConfig.UseSwagger)
