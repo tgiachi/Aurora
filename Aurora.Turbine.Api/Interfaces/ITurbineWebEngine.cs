@@ -11,8 +11,10 @@ namespace Aurora.Turbine.Api.Interfaces
     public interface ITurbineWebEngine
     {
         delegate Task TurbineReadyDelegate(IServiceProvider provider);
+        delegate Task TurbineAppBuiltDelegate(WebApplication application);
 
         event TurbineReadyDelegate OnTurbineReady;
+        event TurbineAppBuiltDelegate OnTurbineAppBuilt;
 
         Task InitLogger(LoggerConfiguration loggerConfiguration);
 
@@ -23,7 +25,7 @@ namespace Aurora.Turbine.Api.Interfaces
         void RegisterDbContextForAutoMigrate<TDbContext>() where TDbContext : DbContext;
 
         void ForceEnvironmentMode(string mode);
-        Task<WebApplication> BuildApp();
+
         Task Run();
 
         void AddContextFactory<TDbContext>(Action<DbContextOptionsBuilder> options, bool addToAutoMigrate) where TDbContext : DbContext;

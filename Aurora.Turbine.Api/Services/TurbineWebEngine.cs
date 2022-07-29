@@ -33,6 +33,8 @@ namespace Aurora.Turbine.Api.Services
         private readonly List<Type> _dbContextsAutoMigrate = new();
 
         public event ITurbineWebEngine.TurbineReadyDelegate? OnTurbineReady;
+        public event ITurbineWebEngine.TurbineAppBuiltDelegate? OnTurbineAppBuilt;
+
 
         public Task InitLogger(LoggerConfiguration loggerConfiguration)
         {
@@ -118,13 +120,7 @@ namespace Aurora.Turbine.Api.Services
             _forceMode = mode;
         }
 
-        public Task<WebApplication> BuildApp()
-        {
-            if (_webApplication != null) return Task.FromResult(_webApplication);
 
-            _webApplication = _webApplicationBuilder.Build();
-            return Task.FromResult(_webApplication);
-        }
 
         public async Task Run()
         {
@@ -138,6 +134,8 @@ namespace Aurora.Turbine.Api.Services
 
             _webApplicationBuilder.Services.AddRouting(options => options.LowercaseUrls = true);
 
+            _webApplication = _webApplicationBuilder.Build();
+            OnTurbineAppBuilt?.Invoke(_webApplication);
 
             _logger.Information("Starting application");
 
