@@ -34,6 +34,9 @@ jobs:
      
       - name: Package turbine
         run: dotnet build -c Debug -o publish/ Aurora.Turbine.Api/Aurora.Turbine.Api.csproj
+      
+      - name: Package RabbitMQ
+        run: dotnet build -c Debug -o publish/ Aurora.RabbitMq/Aurora.RabbitMq.csproj
 
       - name: Publish on NuGet
         run: dotnet nuget push publish/*.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
