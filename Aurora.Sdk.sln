@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Api", "Aurora.Api\Aurora.Api.csproj", "{90A8C0B7-EBF1-42CA-8B2E-73206381C558}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aurora.Api", "Aurora.Api\Aurora.Api.csproj", "{90A8C0B7-EBF1-42CA-8B2E-73206381C558}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Api.Entities", "Aurora.Api.Entities\Aurora.Api.Entities.csproj", "{200D1D9F-AADB-4397-83FA-5935D1E4BF82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aurora.Api.Entities", "Aurora.Api.Entities\Aurora.Api.Entities.csproj", "{200D1D9F-AADB-4397-83FA-5935D1E4BF82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.Turbine.Api", "Aurora.Turbine.Api\Aurora.Turbine.Api.csproj", "{16362591-3392-4BE2-AD94-B1EDA7A58210}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aurora.Turbine.Api", "Aurora.Turbine.Api\Aurora.Turbine.Api.csproj", "{16362591-3392-4BE2-AD94-B1EDA7A58210}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aurora.RabbitMq", "Aurora.RabbitMq\Aurora.RabbitMq.csproj", "{F20DEE15-9CA8-4298-BA34-A6FFC494A3AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{16362591-3392-4BE2-AD94-B1EDA7A58210}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16362591-3392-4BE2-AD94-B1EDA7A58210}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16362591-3392-4BE2-AD94-B1EDA7A58210}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20DEE15-9CA8-4298-BA34-A6FFC494A3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20DEE15-9CA8-4298-BA34-A6FFC494A3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20DEE15-9CA8-4298-BA34-A6FFC494A3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20DEE15-9CA8-4298-BA34-A6FFC494A3AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
