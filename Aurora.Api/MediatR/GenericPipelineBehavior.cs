@@ -12,5 +12,11 @@ namespace Aurora.Api.MediatR
             var response = await next();
             return response;
         }
+
+        public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
+        {
+            var response = await next();
+            return response;
+        }
     }
 }
